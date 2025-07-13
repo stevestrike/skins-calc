@@ -151,7 +151,7 @@ class SkinsCalculator {
                            payout.payout < 0 ? 'negative' : 'zero';
             
             const sign = payout.payout > 0 ? '+' : '';
-            const formattedPayout = payout.payout === 0 ? 'Even Steven' : 
+            const formattedPayout = payout.payout === 0 ? 'Even Steven!' : 
                                   `${sign}$${Math.abs(payout.payout).toFixed(2)}`;
             
             html += `
