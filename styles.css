@@ -63,19 +63,21 @@ label {
 
 .top-row {
     display: flex;
-    gap: 15px;
-    margin-bottom: 18px;
+    gap: 10px;
+    margin-bottom: 15px;
     align-items: flex-start;
 }
 
 .skin-amount-group {
     flex: 0 0 auto;
     margin-bottom: 0;
+    min-width: 120px;
 }
 
 .calculation-method {
     flex: 1;
     margin-bottom: 0;
+    min-width: 0;
 }
 
 input[type="number"] {
@@ -127,7 +129,7 @@ input[type="number"]:focus {
 
 .radio-group {
     display: flex;
-    gap: 15px;
+    gap: 8px;
     flex-wrap: wrap;
 }
 
@@ -166,7 +168,7 @@ input[type="number"]:focus {
 
 .input-row {
     display: flex;
-    gap: 20px;
+    gap: 10px;
 }
 
 .half-width {
@@ -260,15 +262,26 @@ input[type="number"]:focus {
     outline: none;
 }
 
-/* Hide default number input spinners/arrows */
+/* Hide default number input spinners/arrows - more aggressive approach */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+    display: none;
 }
 
 input[type="number"] {
     -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* Additional spinner hiding for better browser support */
+input[type="number"]::-ms-clear {
+    display: none;
+}
+
+input[type="number"]::-ms-reveal {
+    display: none;
 }
 
 .results-section {
