@@ -188,6 +188,19 @@ class SkinsCalculator {
     }
 }
 
+// Prevent double-tap zoom on iOS
+function preventDoubleTabZoom() {
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function (event) {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     new SkinsCalculator();
+    preventDoubleTabZoom();
 });
