@@ -315,6 +315,15 @@ input[type="number"]::-ms-reveal {
     color: #6c757d;
 }
 
+.copyright {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 0.85rem;
+    margin-top: 24px;
+    padding: 16px;
+    font-style: italic;
+}
+
 @media (max-width: 480px) {
     .container {
         padding: 15px;
