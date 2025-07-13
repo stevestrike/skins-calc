@@ -13,6 +13,7 @@ class SkinsCalculator {
         this.potInfo = document.getElementById('potInfo');
         
         this.bindEvents();
+        this.updateSpinnerButtons();
         this.calculate();
     }
     
@@ -25,6 +26,63 @@ class SkinsCalculator {
         
         this.skinValueRadio.addEventListener('change', () => this.toggleCalculationMethod());
         this.skinsPotRadio.addEventListener('change', () => this.toggleCalculationMethod());
+        
+        this.bindSpinnerEvents();
+    }
+    
+    bindSpinnerEvents() {
+        const spinnerBtns = document.querySelectorAll('.spinner-btn');
+        spinnerBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => this.handleSpinnerClick(e));
+        });
+    }
+    
+    handleSpinnerClick(e) {
+        const target = e.target.dataset.target;
+        const action = e.target.dataset.action;
+        const input = document.getElementById(target);
+        
+        if (!input) return;
+        
+        const currentValue = parseInt(input.value);
+        const min = parseInt(input.min);
+        const max = parseInt(input.max);
+        
+        let newValue = currentValue;
+        
+        if (action === 'increase' && currentValue < max) {
+            newValue = currentValue + 1;
+        } else if (action === 'decrease' && currentValue > min) {
+            newValue = currentValue - 1;
+        }
+        
+        if (newValue !== currentValue) {
+            input.value = newValue;
+            this.updateSpinnerButtons();
+            this.calculate();
+        }
+    }
+    
+    updateSpinnerButtons() {
+        const spinnerBtns = document.querySelectorAll('.spinner-btn');
+        
+        spinnerBtns.forEach(btn => {
+            const target = btn.dataset.target;
+            const action = btn.dataset.action;
+            const input = document.getElementById(target);
+            
+            if (!input) return;
+            
+            const currentValue = parseInt(input.value);
+            const min = parseInt(input.min);
+            const max = parseInt(input.max);
+            
+            if (action === 'increase') {
+                btn.disabled = currentValue >= max;
+            } else if (action === 'decrease') {
+                btn.disabled = currentValue <= min;
+            }
+        });
     }
     
     toggleCalculationMethod() {
