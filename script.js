@@ -105,7 +105,7 @@ class SkinsCalculator {
             return;
         }
         
-        const maxSkins = Math.min(10, totalSkins);
+        const maxSkins = totalSkins;
         const payouts = this.calculatePayouts(players, totalSkins, maxSkins);
         this.displayPotInfo(players, totalSkins);
         this.displayPayouts(payouts);
