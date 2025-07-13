@@ -12,28 +12,44 @@
         <p class="subtitle">Because Bobby G is good a maths.</p>
         
         <div class="input-section">
-            <div class="top-row">
-                <div class="input-group skin-amount-group">
-                    <label for="skinAmount">Skin Amount:</label>
-                    <div class="spinner-control compact">
-                        <button type="button" class="spinner-btn" data-target="skinAmount" data-action="decrease">−</button>
-                        <div class="currency-input">
-                            <span class="currency-symbol">$</span>
-                            <input type="number" id="skinAmount" min="1" max="100" value="1" readonly>
-                        </div>
-                        <button type="button" class="spinner-btn" data-target="skinAmount" data-action="increase">+</button>
-                    </div>
+            <div class="input-group">
+                <label for="players">Number of Players:</label>
+                <div class="spinner-control">
+                    <button type="button" class="spinner-btn" data-target="players" data-action="decrease">−</button>
+                    <input type="number" id="players" min="2" max="16" value="4" readonly>
+                    <button type="button" class="spinner-btn" data-target="players" data-action="increase">+</button>
                 </div>
-                
-                <div class="calculation-method">
-                    <label class="method-label">Calculation Method:</label>
-                    <div class="radio-group">
-                        <input type="radio" id="skinValue" name="method" value="skinValue" checked>
-                        <label for="skinValue" class="radio-label">Set Skin Amount</label>
-                        
-                        <input type="radio" id="skinsPot" name="method" value="skinsPot">
-                        <label for="skinsPot" class="radio-label">Player Contribution</label>
+            </div>
+            
+            <div class="input-group">
+                <label for="totalSkins">Total Skins Out:</label>
+                <div class="spinner-control">
+                    <button type="button" class="spinner-btn" data-target="totalSkins" data-action="decrease">−</button>
+                    <input type="number" id="totalSkins" min="1" max="20" value="8" readonly>
+                    <button type="button" class="spinner-btn" data-target="totalSkins" data-action="increase">+</button>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="skinAmount">Skin Amount:</label>
+                <div class="spinner-control">
+                    <button type="button" class="spinner-btn" data-target="skinAmount" data-action="decrease">−</button>
+                    <div class="currency-input">
+                        <span class="currency-symbol">$</span>
+                        <input type="number" id="skinAmount" min="1" max="100" value="1" readonly>
                     </div>
+                    <button type="button" class="spinner-btn" data-target="skinAmount" data-action="increase">+</button>
+                </div>
+            </div>
+            
+            <div class="calculation-method">
+                <label class="method-label">Calculation Method:</label>
+                <div class="radio-group">
+                    <input type="radio" id="skinValue" name="method" value="skinValue" checked>
+                    <label for="skinValue" class="radio-label">Set Skin Amount</label>
+                    
+                    <input type="radio" id="skinsPot" name="method" value="skinsPot">
+                    <label for="skinsPot" class="radio-label">Player Contribution</label>
                 </div>
             </div>
             
@@ -42,26 +58,6 @@
                 <div class="currency-input">
                     <span class="currency-symbol">$</span>
                     <input type="number" id="potAmount" min="1" step="1" value="5">
-                </div>
-            </div>
-            
-            <div class="input-row">
-                <div class="input-group half-width">
-                    <label for="players">Number of Players:</label>
-                    <div class="spinner-control">
-                        <button type="button" class="spinner-btn" data-target="players" data-action="decrease">−</button>
-                        <input type="number" id="players" min="2" max="16" value="4" readonly>
-                        <button type="button" class="spinner-btn" data-target="players" data-action="increase">+</button>
-                    </div>
-                </div>
-                
-                <div class="input-group half-width">
-                    <label for="totalSkins">Total Skins Out:</label>
-                    <div class="spinner-control">
-                        <button type="button" class="spinner-btn" data-target="totalSkins" data-action="decrease">−</button>
-                        <input type="number" id="totalSkins" min="1" max="20" value="8" readonly>
-                        <button type="button" class="spinner-btn" data-target="totalSkins" data-action="increase">+</button>
-                    </div>
                 </div>
             </div>
             

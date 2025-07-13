@@ -21,71 +21,56 @@ body {
 h1 {
     text-align: center;
     color: #2c3e50;
-    margin-bottom: 8px;
-    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-size: 2.1rem;
     font-weight: 700;
 }
 
 .subtitle {
     text-align: center;
     color: #7f8c8d;
-    font-size: 0.9rem;
+    font-size: 1.0rem;
     font-style: italic;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 h2 {
     color: #2c3e50;
-    margin-bottom: 15px;
-    font-size: 1.3rem;
+    margin-bottom: 18px;
+    font-size: 1.5rem;
     text-align: center;
 }
 
 .input-section {
     background: white;
-    padding: 20px;
-    border-radius: 12px;
+    padding: 24px;
+    border-radius: 14px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .input-group {
-    margin-bottom: 18px;
+    margin-bottom: 22px;
 }
 
 label {
     display: block;
-    font-size: 1rem;
+    font-size: 1.15rem;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     color: #2c3e50;
 }
 
-.top-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-    align-items: flex-start;
-}
-
-.skin-amount-group {
-    flex: 0 0 auto;
-    margin-bottom: 0;
-    min-width: 120px;
-}
-
 .calculation-method {
-    flex: 1;
-    margin-bottom: 0;
-    min-width: 0;
+    margin-bottom: 22px;
 }
 
 input[type="number"] {
     width: 100%;
-    padding: 12px;
-    font-size: 1.2rem;
+    padding: 14px;
+    font-size: 1.4rem;
     border: 2px solid #ddd;
-    border-radius: 8px;
+    border-radius: 10px;
     background-color: #f9f9f9;
     text-align: center;
     transition: border-color 0.3s ease;
@@ -99,16 +84,16 @@ input[type="number"]:focus {
 
 .calculate-btn {
     width: 100%;
-    padding: 15px;
-    font-size: 1.1rem;
+    padding: 18px;
+    font-size: 1.3rem;
     font-weight: 700;
     background-color: #27ae60;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 8px;
+    margin-top: 10px;
 }
 
 .calculate-btn:hover {
@@ -121,25 +106,25 @@ input[type="number"]:focus {
 
 .method-label {
     display: block;
-    font-size: 1rem;
+    font-size: 1.15rem;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     color: #2c3e50;
 }
 
 .radio-group {
     display: flex;
-    gap: 8px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
 .radio-group input[type="radio"] {
-    margin-right: 6px;
-    transform: scale(1.1);
+    margin-right: 8px;
+    transform: scale(1.25);
 }
 
 .radio-label {
-    font-size: 0.9rem;
+    font-size: 1.0rem;
     font-weight: 500;
     color: #2c3e50;
     cursor: pointer;
@@ -155,38 +140,30 @@ input[type="number"]:focus {
 
 .currency-symbol {
     position: absolute;
-    left: 12px;
-    font-size: 1.2rem;
+    left: 14px;
+    font-size: 1.4rem;
     font-weight: 600;
     color: #666;
     z-index: 1;
 }
 
 .currency-input input[type="number"] {
-    padding-left: 32px;
+    padding-left: 38px;
 }
 
-.input-row {
-    display: flex;
-    gap: 10px;
-}
-
-.half-width {
-    flex: 1;
-}
 
 .pot-info {
     background-color: #f8f9fa;
     border: 2px solid #e9ecef;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 15px;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 18px;
     text-align: center;
 }
 
 .pot-info p {
-    margin-bottom: 6px;
-    font-size: 0.95rem;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
 }
 
 .pot-info p:last-child {
@@ -209,12 +186,12 @@ input[type="number"]:focus {
 }
 
 .spinner-btn {
-    width: 40px;
-    height: 40px;
+    width: 46px;
+    height: 46px;
     border: none;
     background-color: #3498db;
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 700;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -243,19 +220,10 @@ input[type="number"]:focus {
     border: none;
     background: transparent;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 600;
-    padding: 12px 8px;
+    padding: 14px 10px;
     min-width: 0;
-}
-
-.spinner-control.compact {
-    width: 120px;
-}
-
-.spinner-control.compact input[type="number"] {
-    font-size: 1.1rem;
-    padding: 10px 6px;
 }
 
 .spinner-control input[type="number"]:focus {
@@ -286,23 +254,23 @@ input[type="number"]::-ms-reveal {
 
 .results-section {
     background: white;
-    padding: 20px;
-    border-radius: 12px;
+    padding: 24px;
+    border-radius: 14px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .payout-table {
     display: grid;
-    gap: 10px;
+    gap: 12px;
 }
 
 .payout-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 16px;
-    border-radius: 8px;
-    font-size: 1rem;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 1.15rem;
     font-weight: 600;
 }
 
@@ -328,7 +296,7 @@ input[type="number"]::-ms-reveal {
 
 .payout-amount {
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
 }
 
 .positive .payout-amount {
