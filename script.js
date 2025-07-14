@@ -190,35 +190,12 @@ class SkinsCalculator {
     
     async loadRandomBackground() {
         try {
-            const imageFormats = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp', 'svg'];
-            const images = [];
+            // First try to load from manifest (supports any filename)
+            const images = await this.loadImagesFromManifest();
             
-            // Try to fetch a list of images from the images directory
-            // Since we can't directly list directory contents in a browser,
-            // we'll try common image names and see which ones exist
-            const commonNames = [
-                'background1', 'background2', 'background3', 'background4', 'background5',
-                'bg1', 'bg2', 'bg3', 'bg4', 'bg5',
-                'image1', 'image2', 'image3', 'image4', 'image5',
-                '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
-            ];
-            
-            // Check for existing images
-            for (const name of commonNames) {
-                for (const format of imageFormats) {
-                    const imagePath = `images/${name}.${format}`;
-                    if (await this.imageExists(imagePath)) {
-                        images.push(imagePath);
-                    }
-                }
-            }
-            
-            // Also check for any images in the root directory that might be backgrounds
-            for (const format of imageFormats) {
-                const imagePath = `background.${format}`;
-                if (await this.imageExists(imagePath)) {
-                    images.push(imagePath);
-                }
+            // Fallback to predefined names if manifest is empty or fails
+            if (images.length === 0) {
+                await this.loadImagesFromPredefinedNames(images);
             }
             
             if (images.length > 0) {
@@ -228,6 +205,56 @@ class SkinsCalculator {
         } catch (error) {
             // Silently fail if no images are found
             console.log('No background images found');
+        }
+    }
+    
+    async loadImagesFromManifest() {
+        try {
+            const response = await fetch('images/manifest.json');
+            if (response.ok) {
+                const manifest = await response.json();
+                const validImages = [];
+                
+                // Verify each image in manifest exists
+                for (const imagePath of manifest) {
+                    if (await this.imageExists(`images/${imagePath}`)) {
+                        validImages.push(`images/${imagePath}`);
+                    }
+                }
+                
+                return validImages;
+            }
+        } catch (error) {
+            console.log('Manifest not found, falling back to predefined names');
+        }
+        return [];
+    }
+    
+    async loadImagesFromPredefinedNames(images) {
+        const imageFormats = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp', 'svg'];
+        const commonNames = [
+            'background1', 'background2', 'background3', 'background4', 'background5',
+            'bg1', 'bg2', 'bg3', 'bg4', 'bg5',
+            'image1', 'image2', 'image3', 'image4', 'image5',
+            '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
+        ];
+        
+        // Check for existing images with predefined names
+        for (const name of commonNames) {
+            for (const format of imageFormats) {
+                const imagePath = `images/${name}.${format}`;
+                if (await this.imageExists(imagePath)) {
+                    images.push(imagePath);
+                }
+            }
+        }
+        
+        // Also check for any images in the root directory that might be backgrounds
+        for (const format of imageFormats) {
+            const imagePath = `background.${format}`;
+            if (await this.imageExists(imagePath)) {
+                images.push(imagePath);
+            }
         }
     }
     
