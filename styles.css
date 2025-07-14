@@ -57,6 +57,16 @@ h2 {
     text-align: center;
 }
 
+/*
+  Results section (bottom box):
+  .results-section {
+      background: white;
+
+    To make them semi-transparent, change background: white; to something like:
+    - background: rgba(255, 255, 255, 0.9); (90% opaque white)
+    - background: rgba(255, 255, 255, 0.8); (80% opaque white)
+    */
+
 .input-section {
     background: -background: rgba(255, 255, 255, 0.8);;
     padding: 24px;
@@ -273,7 +283,7 @@ input[type="number"]::-ms-reveal {
 }
 
 .results-section {
-    background: white;
+    background:   -background: rgba(255, 255, 255, 0.7);;
     padding: 24px;
     border-radius: 14px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
