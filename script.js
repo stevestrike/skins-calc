@@ -15,6 +15,7 @@ class SkinsCalculator {
         this.bindEvents();
         this.updateSpinnerButtons();
         this.calculate();
+        this.loadRandomBackground();
     }
     
     bindEvents() {
@@ -185,6 +186,58 @@ class SkinsCalculator {
             <p><strong>Each Skin Worth:</strong> $${skinValue.toFixed(2)}</p>
             <p><strong>Entry Fee (per player):</strong> $${entryFee.toFixed(2)}</p>
         `;
+    }
+    
+    async loadRandomBackground() {
+        try {
+            const imageFormats = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp', 'svg'];
+            const images = [];
+            
+            // Try to fetch a list of images from the images directory
+            // Since we can't directly list directory contents in a browser,
+            // we'll try common image names and see which ones exist
+            const commonNames = [
+                'background1', 'background2', 'background3', 'background4', 'background5',
+                'bg1', 'bg2', 'bg3', 'bg4', 'bg5',
+                'image1', 'image2', 'image3', 'image4', 'image5',
+                '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
+            ];
+            
+            // Check for existing images
+            for (const name of commonNames) {
+                for (const format of imageFormats) {
+                    const imagePath = `images/${name}.${format}`;
+                    if (await this.imageExists(imagePath)) {
+                        images.push(imagePath);
+                    }
+                }
+            }
+            
+            // Also check for any images in the root directory that might be backgrounds
+            for (const format of imageFormats) {
+                const imagePath = `background.${format}`;
+                if (await this.imageExists(imagePath)) {
+                    images.push(imagePath);
+                }
+            }
+            
+            if (images.length > 0) {
+                const randomImage = images[Math.floor(Math.random() * images.length)];
+                document.body.style.backgroundImage = `url('${randomImage}')`;
+            }
+        } catch (error) {
+            // Silently fail if no images are found
+            console.log('No background images found');
+        }
+    }
+    
+    imageExists(imagePath) {
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.onload = () => resolve(true);
+            img.onerror = () => resolve(false);
+            img.src = imagePath;
+        });
     }
 }
 
