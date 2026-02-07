@@ -341,6 +341,163 @@ input[type="number"]::-ms-reveal {
     color: #6c757d;
 }
 
+/* Navigation styles */
+.nav-links {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #2980b9;
+}
+
+/* Handicap calculator specific styles */
+select {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: border-color 0.3s ease;
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none;
+    border-color: #3498db;
+    background-color: white;
+}
+
+.handicap-result {
+    background-color: #e8f5e8;
+    border: 2px solid #27ae60;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.handicap-display h3 {
+    color: #27ae60;
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.course-info {
+    background-color: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.course-details h4 {
+    color: #2c3e50;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+.course-details p {
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.course-details p:last-child {
+    margin-bottom: 0;
+}
+
+.error {
+    color: #e74c3c;
+    font-weight: 600;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Handicap table styles */
+.handicap-table {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.handicap-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.handicap-table th {
+    background-color: #3498db;
+    color: white;
+    padding: 16px 12px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.handicap-table td {
+    padding: 14px 12px;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 1.05rem;
+}
+
+.handicap-table .course-name {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+    text-align: left;
+    padding-left: 16px;
+}
+
+.handicap-table .handicap-cell {
+    font-weight: 700;
+    color: #27ae60;
+    font-size: 1.2rem;
+}
+
+.handicap-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.handicap-table tr:hover .course-name {
+    background-color: #e9ecef;
+}
+
+/* Snarky comment styles */
+.snarky-comment {
+    margin-top: 12px;
+    padding: 12px 16px;
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 8px;
+    font-style: italic;
+    font-weight: 500;
+    color: #856404;
+    text-align: center;
+    min-height: 20px;
+    transition: all 0.3s ease;
+}
+
+.snarky-comment:empty {
+    display: none;
+}
+
 .copyright {
     text-align: center;
     color: #7f8c8d;

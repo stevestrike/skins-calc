@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Course Handicap Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link">← Back to Skins Calculator</a>
+        </nav>
+        <h1>Course Handicap Calculator</h1>
+        <p class="subtitle">Calculate your course handicap for our regular courses.</p>
+
+        <div class="input-section">
+            <div class="input-group">
+                <label for="handicapIndex">Handicap Index:</label>
+                <input type="number" id="handicapIndex" min="0" max="20" step="0.1" value="" placeholder="Enter your handicap (e.g. 8.0)">
+            </div>
+            <div id="snarkyComment" class="snarky-comment"></div>
+        </div>
+
+        <div class="results-section" id="handicapTable">
+            <h2>Course Handicaps</h2>
+            <div class="handicap-table">
+                <table id="handicapResults">
+                    <thead>
+                        <tr>
+                            <th>Course</th>
+                            <th>Blue</th>
+                            <th>White</th>
+                            <th>Gold</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="course-name">Pines/Creek</td>
+                            <td id="pines-creek-blue" class="handicap-cell">-</td>
+                            <td id="pines-creek-white" class="handicap-cell">-</td>
+                            <td id="pines-creek-gold" class="handicap-cell">-</td>
+                        </tr>
+                        <tr>
+                            <td class="course-name">Creek/Trails</td>
+                            <td id="creek-trails-blue" class="handicap-cell">-</td>
+                            <td id="creek-trails-white" class="handicap-cell">-</td>
+                            <td id="creek-trails-gold" class="handicap-cell">-</td>
+                        </tr>
+                        <tr>
+                            <td class="course-name">Pines/Trails</td>
+                            <td id="pines-trails-blue" class="handicap-cell">-</td>
+                            <td id="pines-trails-white" class="handicap-cell">-</td>
+                            <td id="pines-trails-gold" class="handicap-cell">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © 2025 Steve Strike
+        </div>
+    </div>
+
+    <script src="handicap.js"></script>
+</body>
+</html>
