@@ -110,6 +110,48 @@ const taglines = [
     "Strong confidence. Familiar outcome."
 ];
 
+const indexTaglines = [
+    "You Could've Gone Home Early",
+    "Time Was Also Spent",
+    "This Is How You Chose to Spend Today",
+    "There Were Other Options",
+    "Hope This Was Worth It",
+    "Several Hours, Explained",
+    "Productivity Remains Zero",
+    "Before Food & Drinks",
+    "Gross Winnings Only",
+    "Not Net of Regret",
+    "Taxes Not Included (Neither Is Dignity)",
+    "This Is Not \"Up\" Yet",
+    "You'll Want to Sit Down",
+    "Cool Story, Still Owe Money",
+    "Does Not Cover the Tots",
+    "Tots Win Again",
+    "Kitchen Still Profits",
+    "House Always Wins",
+    "Minus Appetizers",
+    "This Won't Touch the Tab",
+    "Before You Ordered Again",
+    "Anyway, Here's the Damage",
+    "Let's See What That Was For",
+    "The Moment of Truth",
+    "This Is the Outcome",
+    "Everyone Was Confident Earlier",
+    "Results Have Entered the Chat",
+    "This Felt Bigger Earlier",
+    "That's It",
+    "All That For This",
+    "Read It Slowly",
+    "Yep",
+    "No, Really",
+    "This Barely Matters",
+    "Net Negative Evening",
+    "Tots: Paid. You: Not Really.",
+    "Historical Bar Data Agrees",
+    "Close the Tab",
+    "Because Bobby G is good a maths"
+];
+
 function pickRandom(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
@@ -118,6 +160,11 @@ function pickRandom(arr) {
     const taglineEl = document.getElementById('tagline');
     if (taglineEl) {
         taglineEl.textContent = pickRandom(taglines);
+    }
+
+    const indexTaglineEl = document.getElementById('indexTagline');
+    if (indexTaglineEl) {
+        indexTaglineEl.textContent = pickRandom(indexTaglines);
     }
 
     const appTitleEl = document.getElementById('appTitle');
