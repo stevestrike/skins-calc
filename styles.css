@@ -498,6 +498,23 @@ select:focus {
     display: none;
 }
 
+.reference-links {
+    text-align: center;
+    margin-top: 24px;
+}
+
+.reference-links a {
+    display: block;
+    color: #3498db;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+.reference-links a:hover {
+    text-decoration: underline;
+}
+
 .copyright {
     text-align: center;
     color: #7f8c8d;
