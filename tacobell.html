@@ -65,6 +65,12 @@
     display: flex; align-items: baseline; gap: 24px; flex-wrap: wrap;
     font-family: 'Alfa Slab One', serif; margin: 18px 0 6px;
   }
+  .hero-image {
+  display: block;      /* Forces text below it to a new line */
+  max-width: 100%;     /* Prevents the image from overflowing the section */
+  height: auto;        /* Keeps the image's original proportions */
+  margin: 15px auto;   /* Centers the image and adds space above/below */
+}
   .price-then { font-size: 72px; }
   .price-arrow { font-size: 40px; font-family: 'Archivo', sans-serif; font-weight: 700; }
   .price-now { font-size: 96px; }
