@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bean Burrito Index · 1991–2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFDF7;
+    --ink: #1E1B18;
+    --chili: #C8402F;
+    --teal: #0E7C7B;
+    --mustard: #D99A1B;
+    --receipt: #F5F2EA;
+    --soft: #6B6459;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #E9E4D8;
+    font-family: 'Archivo', sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .sheet {
+    max-width: 820px;
+    margin: 0 auto;
+    background: var(--paper);
+    border-left: 8px solid var(--ink);
+    border-right: 8px solid var(--ink);
+  }
+  section { padding: 40px 56px; }
+  .eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--soft);
+  }
+  h1 {
+    font-family: 'Alfa Slab One', serif;
+    font-weight: 400;
+    font-size: clamp(40px, 7vw, 64px);
+    line-height: 1.02;
+    margin: 10px 0 14px;
+  }
+  h2 {
+    font-family: 'Alfa Slab One', serif;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .kicker { font-size: 17px; max-width: 60ch; color: var(--ink); }
+  .rule { border: none; border-top: 3px solid var(--ink); }
+  .rule-dotted { border: none; border-top: 3px dotted var(--ink); }
+
+  /* Hero */
+  .hero { background: var(--chili); color: #FFF6EC; }
+  .hero .eyebrow { color: #FFD9C7; }
+  .hero-prices {
+    display: flex; align-items: baseline; gap: 24px; flex-wrap: wrap;
+    font-family: 'Alfa Slab One', serif; margin: 18px 0 6px;
+  }
+  .price-then { font-size: 72px; }
+  .price-arrow { font-size: 40px; font-family: 'Archivo', sans-serif; font-weight: 700; }
+  .price-now { font-size: 96px; }
+  .hero-delta {
+    display: inline-block; background: #FFF6EC; color: var(--chili);
+    font-family: 'Space Mono', monospace; font-weight: 700; font-size: 20px;
+    padding: 6px 14px; margin-top: 12px;
+  }
+  .hero-note { margin-top: 16px; font-size: 15px; color: #FFE3D4; max-width: 55ch; }
+
+  /* Chart */
+  .legend { display: flex; gap: 22px; flex-wrap: wrap; margin: 14px 0 10px; font-size: 14px; }
+  .legend span { display: flex; align-items: center; gap: 8px; }
+  .chip { width: 26px; height: 0; display: inline-block; }
+  .chip.solid { border-top: 4px solid var(--chili); }
+  .chip.dash { border-top: 4px dashed var(--mustard); }
+  .chip.dot { border-top: 4px dotted var(--teal); }
+  .chart-caption { font-size: 14px; color: var(--soft); margin-top: 10px; max-width: 62ch; }
+
+  /* Labor math */
+  .labor { background: var(--teal); color: #F0FBF7; }
+  .labor .eyebrow { color: #B5E6D8; }
+  .labor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 22px; }
+  .labor-cell { border-top: 3px solid #F0FBF7; padding-top: 14px; }
+  .labor-cell .yr { font-family: 'Space Mono', monospace; font-size: 14px; letter-spacing: 0.12em; }
+  .labor-cell .big { font-family: 'Alfa Slab One', serif; font-size: 52px; line-height: 1.05; margin: 6px 0 2px; }
+  .labor-cell .sub { font-size: 15px; color: #CDEFE3; }
+  .labor-verdict {
+    margin-top: 26px; font-family: 'Space Mono', monospace; font-weight: 700;
+    font-size: 18px; background: #F0FBF7; color: var(--teal);
+    display: inline-block; padding: 8px 16px;
+  }
+
+  /* Wage freeze strip */
+  .freeze {
+    background: var(--ink); color: var(--paper);
+    padding: 22px 56px; display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap;
+  }
+  .freeze .yrs { font-family: 'Alfa Slab One', serif; font-size: 34px; color: var(--mustard); }
+  .freeze p { font-size: 15px; max-width: 48ch; }
+
+  /* Chain bars */
+  .barrow { display: grid; grid-template-columns: 150px 1fr 64px; align-items: center; gap: 12px; margin: 9px 0; font-size: 15px; }
+  .barrow .name { text-align: right; font-weight: 500; }
+  .bartrack { position: relative; height: 26px; background: #EFEAE0; }
+  .barfill { height: 100%; background: #A9A195; }
+  .barrow.tb .barfill { background: var(--chili); }
+  .barrow.tb .name, .barrow.tb .pct { color: var(--chili); font-weight: 700; }
+  .pct { font-family: 'Space Mono', monospace; font-weight: 700; }
+  .cpi-line {
+    position: absolute; top: -6px; bottom: -6px; width: 0;
+    border-left: 3px dashed var(--teal);
+  }
+  .cpi-note { font-size: 14px; color: var(--teal); font-weight: 700; margin-top: 12px; }
+
+  /* Item jumps */
+  .items-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 20px; }
+  .item-card { border: 3px solid var(--ink); padding: 16px 18px; }
+  .item-card .nm { font-weight: 700; font-size: 16px; }
+  .item-card .jump { font-family: 'Space Mono', monospace; font-size: 20px; margin: 8px 0 4px; }
+  .item-card .jump .now { font-weight: 700; }
+  .item-card .pc { font-family: 'Alfa Slab One', serif; font-size: 26px; color: var(--chili); }
+
+  /* Receipt */
+  .receipt-wrap { background: var(--mustard); }
+  .receipt-flex { display: flex; gap: 36px; align-items: flex-start; flex-wrap: wrap; margin-top: 20px; }
+  .receipt {
+    background: var(--receipt); width: 300px; padding: 26px 24px 34px;
+    font-family: 'Space Mono', monospace; font-size: 14px; color: #35302A;
+    box-shadow: 6px 6px 0 rgba(30,27,24,0.35);
+    -webkit-mask: linear-gradient(135deg, transparent 0 6px, #000 0) 0 0/16px 100%,
+                  linear-gradient(-135deg, transparent 0 6px, #000 0) 8px 100%/16px 100%;
+  }
+  .receipt .rc-head { text-align: center; font-weight: 700; letter-spacing: 0.1em; }
+  .receipt .rc-sub { text-align: center; font-size: 12px; margin-bottom: 14px; }
+  .receipt .li { display: flex; justify-content: space-between; margin: 5px 0; }
+  .receipt .sep { border-top: 2px dashed #9A9282; margin: 12px 0; }
+  .receipt .tot { display: flex; justify-content: space-between; font-weight: 700; font-size: 18px; }
+  .receipt .rc-foot { text-align: center; font-size: 11px; margin-top: 16px; color: #7A7264; }
+  .receipt-copy { flex: 1; min-width: 260px; }
+  .receipt-copy h2 { color: var(--ink); }
+  .receipt-copy p { font-size: 16px; margin-top: 10px; max-width: 42ch; }
+  .receipt-copy .fam {
+    margin-top: 18px; border-left: 6px solid var(--ink); padding-left: 14px;
+    font-weight: 700; font-size: 18px;
+  }
+
+  /* Bottom line */
+  .bottom { background: var(--ink); color: var(--paper); }
+  .bottom h2 { font-size: 32px; color: var(--paper); }
+  .bottom p { font-size: 17px; max-width: 62ch; margin-top: 12px; }
+  .bottom .hl { color: var(--mustard); font-weight: 700; }
+
+  footer {
+    padding: 24px 56px 40px; background: var(--ink); color: #97928A;
+    font-size: 12.5px; line-height: 1.7;
+  }
+  footer strong { color: #C8C3BA; }
+
+  @media (max-width: 640px) {
+    section, .freeze, footer { padding-left: 24px; padding-right: 24px; }
+    .labor-grid, .items-grid { grid-template-columns: 1fr; }
+    .barrow { grid-template-columns: 104px 1fr 56px; font-size: 13px; }
+    .price-then { font-size: 44px; } .price-now { font-size: 60px; }
+  }
+  @media print {
+    body { background: #fff; }
+    .sheet { border: none; max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <section>
+    <p class="eyebrow">1991 – 2026 · A 35-year value audit</p>
+    <h1>The Bean Burrito Index</h1>
+    <p class="kicker">How the cheapest item on America's cheapest menu quietly became a case study in vanishing value — outrunning inflation, lapping the minimum wage, and taking Taco Bell's value crown with it.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section class="hero">
+    <p class="eyebrow">Exhibit A · The burrito itself</p>
+    <div class="hero-prices">
+      <span class="price-then">29¢</span>
+      <span class="price-arrow">→</span>
+      <span class="price-now">$2.19</span>
+    </div>
+    <span class="hero-delta">+655% since 1991</span>
+    <p class="hero-note">In 1991 it sold for 29¢. If the 29¢ price had merely tracked overall inflation (CPI, ~2.4×), it would cost about 70¢ today.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Exhibit B · Three trajectories</p>
+    <h2>The burrito broke away from the economy</h2>
+    <div class="legend">
+      <span><span class="chip solid"></span>Actual price</span>
+      <span><span class="chip dash"></span>If it tracked inflation</span>
+      <span><span class="chip dot"></span>If it tracked min. wage</span>
+    </div>
+    <svg viewBox="0 0 700 320" width="100%" role="img" aria-label="Line chart from 1991 to 2026: actual bean burrito price rises from 29 cents to 2 dollars 19 cents, pulling far above the inflation-tracked path ending near 70 cents and the wage-tracked path ending near 49 cents.">
+      <line x1="60" y1="20" x2="60" y2="270" stroke="#C8C3BA" stroke-width="2"/>
+      <line x1="60" y1="270" x2="680" y2="270" stroke="#1E1B18" stroke-width="3"/>
+      <g font-family="Space Mono, monospace" font-size="13" fill="#6B6459">
+        <text x="50" y="275" text-anchor="end">$0</text>
+        <text x="50" y="174" text-anchor="end">$1</text>
+        <text x="50" y="74" text-anchor="end">$2</text>
+        <text x="60" y="295" text-anchor="middle">1991</text>
+        <text x="216" y="295" text-anchor="middle">2001</text>
+        <text x="373" y="295" text-anchor="middle">2010</text>
+        <text x="530" y="295" text-anchor="middle">2018</text>
+        <text x="666" y="295" text-anchor="middle">2026</text>
+      </g>
+      <line x1="60" y1="174" x2="680" y2="174" stroke="#EFEAE0" stroke-width="2"/>
+      <line x1="60" y1="74" x2="680" y2="74" stroke="#EFEAE0" stroke-width="2"/>
+      <!-- wage-tracked from 29c: 0.29,0.32,0.35,0.35,0.49,0.49,0.49,0.49 -->
+      <polyline points="60,241 148,238 216,235 295,235 373,221 471,221 530,221 666,221"
+        fill="none" stroke="#0E7C7B" stroke-width="4" stroke-dasharray="2 7" stroke-linecap="round"/>
+      <!-- CPI-tracked from 29c: 0.29,0.33,0.38,0.43,0.46,0.50,0.53,0.70 -->
+      <polyline points="60,241 148,237 216,232 295,227 373,224 471,220 530,217 666,200"
+        fill="none" stroke="#D99A1B" stroke-width="4" stroke-dasharray="10 7" stroke-linecap="round"/>
+      <!-- actual: 0.29 promo, then regular menu prices: 0.69,0.79,0.89,0.89,1.09,1.29,2.19 -->
+      <polyline points="60,241 148,201 216,191 295,181 373,181 471,160 530,140 666,50"
+        fill="none" stroke="#C8402F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="666" cy="50" r="7" fill="#C8402F"/>
+      <circle cx="666" cy="200" r="6" fill="#D99A1B"/>
+      <circle cx="666" cy="221" r="6" fill="#0E7C7B"/>
+      <g font-family="Space Mono, monospace" font-size="14" font-weight="700">
+        <text x="658" y="36" text-anchor="end" fill="#C8402F">$2.19</text>
+        <text x="658" y="192" text-anchor="end" fill="#B07708">$0.70</text>
+        <text x="658" y="243" text-anchor="end" fill="#0E7C7B">$0.49</text>
+      </g>
+    </svg>
+    <p class="chart-caption">Baselined at the 29¢ promotional price of 1991; later points are regular menu prices (national-average estimates — Taco Bell pricing is franchise-set and varies by market). Even measured from the everyday 59¢ price, the burrito still grew 3.7× against 2.4× inflation.</p>
+  </section>
+
+  <section class="labor">
+    <p class="eyebrow">Exhibit C · Priced in minutes of your life</p>
+    <h2>The minimum-wage burrito conversion</h2>
+    <div class="labor-grid">
+      <div class="labor-cell">
+        <div class="yr">1991 · $4.25/HR</div>
+        <div class="big">14.7</div>
+        <div class="sub">burritos per hour worked · 4.1 minutes of labor each (at the 29¢ promo price)</div>
+      </div>
+      <div class="labor-cell">
+        <div class="yr">2026 · $7.25/HR</div>
+        <div class="big">3.3</div>
+        <div class="sub">burritos per hour worked · 18.1 minutes of labor each</div>
+      </div>
+    </div>
+    <span class="labor-verdict">−77% purchasing power, measured in burritos</span>
+  </section>
+
+  <div class="freeze">
+    <span class="yrs">17 years</span>
+    <p>The federal minimum wage has been $7.25 since 2009 — the longest freeze in its history. Even at the ~$10–13/hr fast-food restaurants actually pay to retain workers, an hour buys fewer burritos today than a minimum-wage hour did in 1991.</p>
+  </div>
+
+  <section>
+    <p class="eyebrow">Exhibit D · The competition, 2014–2024</p>
+    <h2>Everyone raised prices. The "value" chains raised them most.</h2>
+    <div style="margin-top:18px; position:relative;">
+      <div class="barrow"><span class="name">McDonald's</span><span class="bartrack"><span class="barfill" style="width:100%"></span><span class="cpi-line" style="left:31%"></span></span><span class="pct">+100%</span></div>
+      <div class="barrow"><span class="name">Popeyes</span><span class="bartrack"><span class="barfill" style="width:86%"></span><span class="cpi-line" style="left:31%"></span></span><span class="pct">+86%</span></div>
+      <div class="barrow tb"><span class="name">Taco Bell</span><span class="bartrack"><span class="barfill" style="width:81%"></span><span class="cpi-line" style="left:31%"></span></span><span class="pct">+81%</span></div>
+      <div class="barrow"><span class="name">Chipotle</span><span class="bartrack"><span class="barfill" style="width:75%"></span><span class="cpi-line" style="left:31%"></span></span><span class="pct">+75%</span></div>
+      <div class="barrow"><span class="name">Jimmy John's</span><span class="bartrack"><span class="barfill" style="width:62%"></span><span class="cpi-line" style="left:31%"></span></span><span class="pct">+62%</span></div>
+      <div class="barrow"><span class="name">12-chain avg.</span><span class="bartrack"><span class="barfill" style="width:60%"></span><span class="cpi-line" style="left:31%"></span></span><span class="pct">+60%</span></div>
+      <div class="barrow"><span class="name">Subway</span><span class="bartrack"><span class="barfill" style="width:39%"></span><span class="cpi-line" style="left:31%"></span></span><span class="pct">+39%</span></div>
+      <div class="barrow"><span class="name">Starbucks</span><span class="bartrack"><span class="barfill" style="width:39%"></span><span class="cpi-line" style="left:31%"></span></span><span class="pct">+39%</span></div>
+    </div>
+    <p class="cpi-note">┊ dashed line = actual CPI inflation for the same decade: +31%</p>
+    <p class="chart-caption">Facing the same labor market and the same food costs, chains chose very differently. Taco Bell chose the third-steepest climb of any major chain — a striking choice for the brand whose entire identity was being the cheapest.</p>
+  </section>
+
+  <hr class="rule-dotted">
+
+  <section>
+    <p class="eyebrow">Exhibit E · The icons, then and now</p>
+    <h2>Taco Bell's own greatest hits, repriced</h2>
+    <div class="items-grid">
+      <div class="item-card">
+        <div class="nm">Beefy 5-Layer Burrito</div>
+        <div class="jump">$1.59 → <span class="now">$3.69</span></div>
+        <div class="pc">+132%</div>
+      </div>
+      <div class="item-card">
+        <div class="nm">Bean Burrito</div>
+        <div class="jump">$1.09 → <span class="now">$2.19</span></div>
+        <div class="pc">+101%</div>
+      </div>
+      <div class="item-card">
+        <div class="nm">Cheesy Gordita Crunch</div>
+        <div class="jump">$2.49 → <span class="now">$4.99</span></div>
+        <div class="pc">+100%</div>
+      </div>
+      <div class="item-card">
+        <div class="nm">Doritos Locos Taco</div>
+        <div class="jump">$1.39 → <span class="now">$2.59</span></div>
+        <div class="pc">+86%</div>
+      </div>
+    </div>
+    <p class="chart-caption" style="margin-top:16px;">2014 vs. current national-average prices. Every flagship item at least doubled — against +31% inflation for the same period.</p>
+  </section>
+
+  <section class="receipt-wrap">
+    <p class="eyebrow" style="color:#8A5E06;">Exhibit F · Field evidence</p>
+    <div class="receipt-flex">
+      <div class="receipt">
+        <div class="rc-head">TACO BELL</div>
+        <div class="rc-sub">Houston, TX · July 2026<br>drive-thru · dinner for one</div>
+        <div class="sep"></div>
+        <div class="li"><span>BEAN BURRITO</span><span>2.19</span></div>
+        <div class="li"><span>GRILLED CHEESE BURRITO</span><span>5.99</span></div>
+        <div class="li"><span>STEAK QUESADILLA</span><span>7.50</span></div>
+        <div class="li" style="color:#9A9282;"><span>DRINKS</span><span>0.00</span></div>
+        <div class="sep"></div>
+        <div class="li"><span>SUBTOTAL</span><span>15.68</span></div>
+        <div class="li"><span>TAX 8.25%</span><span>1.29</span></div>
+        <div class="sep"></div>
+        <div class="tot"><span>TOTAL</span><span>$16.97</span></div>
+        <div class="rc-foot">* ACTUAL PURCHASE — TOTAL AS PAID.<br>LINE PRICES RECONSTRUCTED FROM MENU.<br>IN 1991 THIS MEAL WAS UNDER $3.</div>
+      </div>
+      <div class="receipt-copy">
+        <h2>$16.97. One person. No drink.</h2>
+        <p>Three items off the regular menu — nothing supreme, nothing loaded, nothing luxe — now costs what a casual sit-down lunch used to.</p>
+        <p>Scale it up and the math turns brutal:</p>
+        <p class="fam">A family of four, ordering modestly with drinks, now runs $60–70 at the "value" chain.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom">
+    <h2>The verdict</h2>
+    <p>Taco Bell was the king of fast-food value because the gap between what you paid and what you got was the widest in the industry. That gap — not the raw price — was the product.</p>
+    <p>Over 35 years the burrito's price grew <span class="hl">7.6×</span> from its 29¢ promo era (3.7× from the 59¢ regular price), inflation grew <span class="hl">2.4×</span>, and the minimum wage grew <span class="hl">1.7×</span>. The remaining "value" migrated into app deals and rotating boxes — meaning the walk-in customer, the average person this brand was built on, now pays the highest effective prices in its history.</p>
+  </section>
+
+  <footer>
+    <strong>Sources & notes:</strong> 1991 prices (29¢ promotional / 59¢ regular) and 2026 local price ($2.19) per author; headline figures baselined at the 29¢ promo price, with 59¢-baseline equivalents noted. Current bean burrito prices reported at $1.79–$2.89 by market. 2014–2024 chain increases and item prices: FinanceBuzz fast-food inflation study (12 chains); CPI +31% for 2014–2024 and ~2.4× for 1991–2026 per Bureau of Labor Statistics. Federal minimum wage history: U.S. Dept. of Labor. Mid-period burrito prices are national-average estimates; Taco Bell pricing is franchise-set and varies by location. Receipt total is an actual July 2026 purchase; line-item prices reconstructed.
+  </footer>
+
+</div>
+</body>
+</html>
